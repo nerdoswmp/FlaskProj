@@ -2,3 +2,5 @@ pyodbc
 pandas
 plotly
 flask
+
+-- Python 3.9 --
