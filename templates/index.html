@@ -1,0 +1,287 @@
+<!-- ta na linha 136 -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="static/js/script.js"></script>
+  <script type="text/javascript" src="static/js/graph.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.6/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+  <link rel="icon" type="image/png" href="static/img/icon.png"/>
+  <title>TemplateWebp</title>
+</head>
+
+<body id="pag1">
+	<header class="menu">
+		<div class="menu-container">
+			<a class="menu-logo" href="#intro"><img src="static/img/logo.png" alt="Gamind Logo"></a>
+			<nav class="menu-nav">
+				<ul>
+					<li><a href="#sobre">Sobre nós</a></li>
+					<li><a href="#precos">Preços</a></li>
+					<li><a href="#footer">Contato</a></li>
+          <li><a href="pagina.html">Conteúdos</a></li>
+          <li><a onclick="openLoginForm()" id="login">Entrar</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+  <br><br><br><br><br>
+
+  <div class="popup-overlay"></div>
+    <div class="popup1">
+      <div class="login-box">
+        <div class="popup-close" onclick="closeLoginForm()">
+          ×
+        </div>
+        <h2>Login</h2>
+        <br>
+        <form>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>E-mail</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="" required="">
+          <label>Senha</label>
+          <p><a onclick="closeLoginForm(); openPasswordForm();">Esqueci minha senha</a> </p>
+        </div>
+        <br>
+        <a id="entrar-neon" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Entrar
+        </a>
+        <br><br><br>
+        <p>Ainda não possui cadastro? <a onclick="closeLoginForm(); openRegisterForm();"> Cadastre-se aqui</a> </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup2">
+      <div class="login-box">
+        <div class="popup-close" onclick="closeRegisterForm()">
+          ×
+        </div>
+        <h2>Cadastro de Usuário</h2>
+        <br>
+        <form>
+          <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Nome Completo</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Telefone</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>E-mail</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="" required="">
+          <label>Senha</label>
+        </div>
+        <a id="entrar-neon" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Cadastre-se
+        </a>
+        <br><br><br>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup3">
+      <div class="login-box">
+        <div class="popup-close" onclick="closePasswordForm()">
+          ×
+        </div>
+        <h2>Esqueci minha senha</h2>
+        <br>
+        <form>
+          <p>Insira seu e-mail abaixo para que possamos enviar uma mensagem com o link para redefinição de senha. (Não esqueça de checar as pastas de spam e lixo eletrônico)</p>
+          <br>
+          <p>Se o e-mail não chegar em até 10 minutos, <a> clique aqui</a>.</p>
+          <br><br>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Insira o e-mail cadastrado</label>
+        </div>
+        <a id="entrar-neon" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Redefinir senha
+        </a>
+        <br><br><br>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <span class="anchor" id="intro"></span>
+  <main class="intro">
+    <h1>to usando isso aqui de template ok</h1>
+    <p>todo: fazer um site novo encima desse</p>
+  </main>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <center>
+    <h1>graph ooga pooga</h1>
+      <meta http-equiv="refresh" content="29">       <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
+    <div id="chart" class="chart"></div>
+  </center>
+    <!--
+  <div class="container">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <img src="static/img/img-pq.png" class="img-responsive">
+            <br>
+          <h2>Objetivo</h2>
+            <br>
+          <p>É <a href="https://educere.bruc.com.br/arquivo/pdf2015/19315_10181.pdf" target="_blank">cientificamente comprovado</a> que jogos do estilo "puzzle" ajudam a treinar o cérebro na hora de expandir o conhecimento, além de incentivar o usuário a tomar as rédeas de seu próprio aprendizado através da diversão.</p>
+        </section>
+        <section>
+          <img src="static/img/img-atualizado.png" class="img-responsive">
+            <br>
+          <h2>Acessível</h2>
+            <br>
+          <p>Nossos planos começam a partir de R$15, e já no plano <a href="#precos">N00B</a> você recebe acesso à conteúdos de nível desde curso técnico à faculdade!</p>
+        </section>
+        <section>
+          <img src="static/img/mais-pc.png" class="img-responsive">
+            <br>
+          <h2>Variado</h2>
+            <br>
+          <p>Os planos da Gamind possuem jogos e aulas disponíveis em múltiplas línguagens, tanto convêncionais quanto de programação! Possibilitanto o aprendizado do jeito e ritmo que você quiser!</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br><br>
+
+  <span class="anchor" id="sobre"></span>
+  <div class="container">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <div class=img-dsc></div>
+        </section>
+        <section>
+            <br><br><br><br>
+          <h1 style="margin-right:30px; font-size:40px;">Quem somos?</h1>
+            <br>
+          <p style="margin-right:30px; font-size:20px;">A equipe do Gamind é composta por dois desenvolvedores, responsáveis por este site! Entretanto, os jogos e aulas vem de usuários mais experiêntes e professores formados na área!</p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <br><br><br><br>
+          <h1 style="margin-left:30px; font-size:40px;">O que fazemos?</h1>
+          <br>
+          <p style="margin-left:30px; font-size:20px;">Nosso objetivo é facilitar o acesso ao conhecimento de programação através de jogos, aulas e bate-papos com professores especializados em diversos assuntos. Fora os jogos e as aulas, também são disponibilizados exercícios que podem ser elaborados tanto pelos professores quanto pela comunidade, caso nossos alunos sintam-se confiantes o suficiente.</p>
+        </section>
+        <section>
+          <div class="img-dsc2"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <span class="anchor" id="precos"></span>
+  <div>
+    <br>
+    <br>
+    <br>
+    <br>
+  </div>
+  !-->
+  <br><br><br>
+
+  <div class="footer" id="footer">
+      <div class="heading">
+        <h2>MariMuri Corp. <sup>&trade;</sup></h2>
+      </div>
+      <div class="content">
+        <div>
+          <h4>Serviços</h4>
+          <p><a href="#precos">Preços de pacotes</a></p>
+          <p><a href="#">O que fazemos</a></p>
+          <p><a href="#">Quem somos</a></p>
+        </div>
+        <div>
+          <h4>Social</h4>
+          <p>
+            <a href="https://www.linkedin.com/" target="_blank">Linkedin</a>
+          </p>
+          <p>
+            <a href="https://twitter.com/" target="_blank">Twitter</a>
+          </p>
+          <p>
+            <a href="https://github.com/" target="_blank">Github</a>
+          </p>
+          <p>
+            <a href="https://codepen.io/" target="_blank">Codepen</a>
+          </p>
+          <p>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+          </p>
+        </div>
+        <div>
+          <h4>Acesso rápido</h4>
+          <p><a href="#intro">Home</a></p>
+          <p><a href="#footer">Sobre</a></p>
+          <p><a href="#">Blogs</a></p>
+          <p><a href="#footer">Contato</a></p>
+        </div>
+        <div>
+          <h4>Endereço</h4>
+          <p>
+            Foz do do iguaçu
+          </p>
+          <h4>Telefone</h4>
+          <p>+1 (554) 188-4562</p>
+          <h4>Email</h4>
+          <p>marimuri@marimuricorp.com</p>
+        </div>
+      </div>
+      <footer>
+        <hr/>
+        &copy; 2021 GAMIND MARIMURI CORP. &trade; Ltd.
+      </footer>
+    </div>
+</body>
+<script>
+  d = {{ graphJSON | safe }};
+  Plotly.newPlot('chart', d, {});
+</script>
+</html>

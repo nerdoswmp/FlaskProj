@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<script type="text/javascript" src="js/script.js">
+
+	</script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+	<link rel="icon" type="image/png" href="static/img/icon.png"/>
+	<title>Gamind</title>
+</head>
+
+<body id="pag1">
+	<header class="menu">
+		<div class="menu-container">
+			<a class="menu-logo" href="/"><img src="static/img/logo.png" alt="Gamind Logo"></a>
+			<nav class="menu-nav">
+				<ul>
+					<li><a href="index.html#sobre">Sobre nós</a></li>
+					<li><a href="index.html#precos">Preços</a></li>
+					<li><a href="index.html#footer">Contato</a></li>
+          <li><a href="index.html#intro">Conteúdos</a></li>
+          <li><a onclick="openLoginForm()" id="login">Entrar</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+  <br><br><br><br><br>
+
+  <div class="popup-overlay"></div>
+    <div class="popup1">
+      <div class="login-box">
+        <div class="popup-close" onclick="closeLoginForm()">
+          ×
+        </div>
+        <h2>Login</h2>
+        <br>
+        <form>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>E-mail</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="" required="">
+          <label>Senha</label>
+          <p><a onclick="closeLoginForm(); openPasswordForm();">Esqueci minha senha</a> </p>
+        </div>
+        <br>
+        <a id="entrar-neon" href="pagina-login.html">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Entrar
+        </a>
+        <br><br><br>
+        <p>Ainda não possui cadastro? <a onclick="closeLoginForm(); openRegisterForm();"> Cadastre-se aqui</a> </p>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup2">
+      <div class="login-box">
+        <div class="popup-close" onclick="closeRegisterForm()">
+          ×
+        </div>
+        <h2>Cadastro de Usuário</h2>
+        <br>
+        <form>
+          <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Nome Completo</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Telefone</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>E-mail</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="" required="">
+          <label>Senha</label>
+        </div>
+        <a id="entrar-neon" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Cadastre-se
+        </a>
+        <br><br><br>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup3">
+      <div class="login-box">
+        <div class="popup-close" onclick="closePasswordForm()">
+          ×
+        </div>
+        <h2>Esqueci minha senha</h2>
+        <br>
+        <form>
+          <p>Insira seu e-mail abaixo para que possamos enviar uma mensagem com o link para redefinição de senha. (Não esqueça de checar as pastas de spam e lixo eletrônico)</p>
+          <br>
+          <p>Se o e-mail não chegar em até 10 minutos, <a href=""> clique aqui</a>.</p>
+          <br><br>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Insira o e-mail cadastrado</label>
+        </div>
+        <a id="entrar-neon" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Redefinir senha
+        </a>
+        <br><br><br>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup4">
+      <div class="login-box">
+        <h2>Faça login para continuar</h2>
+        <br>
+        <form>
+          <p>Os conteúdos a seguir são de visualização exclusiva de nossos assinantes. Caso você não possua cadastro e deseje assinar nossos serviços agora, <a>clique aqui</a>.</p>
+          <br><br>
+          <p>Já é assinante?</p>
+          <br>
+        <div class="user-box">
+          <input type="text" name="" required="">
+          <label>Insira o e-mail cadastrado</label>
+        </div>
+        <a id="entrar-neon" onclick="closeContentForm(); openLoginForm();">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Login
+        </a>
+        <br><br><br>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <main class="intro" id="someElement" id="intro">
+    <h1>Conteúdos</h1>
+    <br>
+    <br>
+
+    <p>Comece a investir em seu Gamindset hoje! Abaixo estão a mostra<br> vídeo-aulas exclusivas aos quais apenas nossos assinantes possuem acesso.</p>
+    <br><br>
+    <p>Já é assinante? <a onclick="openLoginForm()">Clique aqui</a></p>
+  </main>
+
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <br><br><br><br>
+
+  <div class="container funny" id="sobre">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <iframe src="https://www.youtube.com/embed/JaTf3dhx464" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <br><br>
+          <a id="ex" href="">Materiais</a>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <div class="container funny" id="sobre">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <iframe src="https://www.youtube.com/embed/S9uPNppGsGo?list=PLvE-ZAFRgX8hnECDn1v9HNTI71veL3oW0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <br><br>
+          <a id="ex" href="">Materiais</a>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+
+    <div class="container funny" id="sobre">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <iframe src="https://www.youtube.com/embed/dvNp575fwzQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <br><br>
+          <a id="ex" href="">Materiais</a>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+
+
+	<!-- copyright -->
+  <div class="footer" id="footer">
+      <div class="heading">
+        <h2>MariMuri Corp. <sup>&trade;</sup></h2>
+      </div>
+      <div class="content">
+        <div>
+          <h4>Serviços</h4>
+          <p><a href="#index.html">Preços de pacotes</a></p>
+          <p><a href="index.html">O que fazemos</a></p>
+          <p><a href="index.html">Quem somos</a></p>
+        </div>
+        <div>
+          <h4>Social</h4>
+          <p>
+            <a href="https://www.linkedin.com/" target="_blank">Linkedin</a>
+          </p>
+          <p>
+            <a href="https://twitter.com/" target="_blank">Twitter</a>
+          </p>
+          <p>
+            <a href="https://github.com/" target="_blank">Github</a>
+          </p>
+          <p>
+            <a href="https://codepen.io/" target="_blank">Codepen</a>
+          </p>
+          <p>
+            <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+          </p>
+        </div>
+        <div>
+          <h4>Acesso rápido</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="#footer">Sobre</a></p>
+          <p><a href="#">Blogs</a></p>
+          <p><a href="#footer">Contato</a></p>
+        </div>
+        <div>
+          <h4>Endereço</h4>
+          <p>
+            Foz do do iguaçu
+          </p>
+          <h4>Telefone</h4>
+          <p>+1 (554) 188-4562</p>
+          <h4>Email</h4>
+          <p>marimuri@marimuricorp.com</p>
+        </div>
+      </div>
+      <footer>
+        <hr/>
+        &copy; 2021 GAMIND MARIMURI CORP. &trade; Ltd.
+      </footer>
+    </div>
+</body>
+</html>
