@@ -146,15 +146,15 @@
 
   <center>
     <h1>graph ooga pooga</h1>
-      <meta http-equiv="refresh" content="29">       <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
+      <!--<meta http-equiv="refresh" content="29">-->       <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
     <div id="chart" class="chart"></div>
   </center>
-    <!--
+
   <div class="container">
     <div class="sections section1">
       <div class="content">
         <section>
-          <img src="static/img/img-pq.png" class="img-responsive">
+          <div id="chart2" class="chart"></div>
             <br>
           <h2>Objetivo</h2>
             <br>
@@ -167,19 +167,12 @@
             <br>
           <p>Nossos planos começam a partir de R$15, e já no plano <a href="#precos">N00B</a> você recebe acesso à conteúdos de nível desde curso técnico à faculdade!</p>
         </section>
-        <section>
-          <img src="static/img/mais-pc.png" class="img-responsive">
-            <br>
-          <h2>Variado</h2>
-            <br>
-          <p>Os planos da Gamind possuem jogos e aulas disponíveis em múltiplas línguagens, tanto convêncionais quanto de programação! Possibilitanto o aprendizado do jeito e ritmo que você quiser!</p>
-        </section>
       </div>
     </div>
   </div>
 
   <br><br><br><br>
-
+  <!--
   <span class="anchor" id="sobre"></span>
   <div class="container">
     <div class="sections section1">
@@ -283,5 +276,7 @@
 <script>
   d = {{ graphJSON | safe }};
   Plotly.newPlot('chart', d, {});
+  Plotly.newPlot('chart2', d, {});
+
 </script>
 </html>
