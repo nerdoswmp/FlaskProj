@@ -48,17 +48,20 @@ def gm():
         title_font_family="Montserrat",
         legend_title="Legenda",
         yaxis_title="Dados"
-        """ ,xaxis_tickformatstops=[
-            dict(dtickrange=[None, 1000], value="%H:%M:%S.%L ms"),
-            dict(dtickrange=[1000, 60000], value="%H:%M:%S m"),
-            dict(dtickrange=[60000, 3600000], value="%H:%M h"),
-            dict(dtickrange=[3600000, 86400000], value="%H:%M h"),
-            dict(dtickrange=[86400000, 604800000], value="%e. %b d"),
-            dict(dtickrange=[604800000, "M1"], value="%e. %b w"),
-            dict(dtickrange=["M1", "M12"], value="%b '%y M"),
-            dict(dtickrange=["M12", None], value="%Y Y")
-        ] """
     )
+
+    """ 
+    xaxis_tickformatstops=[
+        dict(dtickrange=[None, 1000], value="%H:%M:%S.%L ms"),
+        dict(dtickrange=[1000, 60000], value="%H:%M:%S m"),
+        dict(dtickrange=[60000, 3600000], value="%H:%M h"),
+        dict(dtickrange=[3600000, 86400000], value="%H:%M h"),
+        dict(dtickrange=[86400000, 604800000], value="%e. %b d"),
+        dict(dtickrange=[604800000, "M1"], value="%e. %b w"),
+        dict(dtickrange=["M1", "M12"], value="%b '%y M"),
+        dict(dtickrange=["M12", None], value="%Y Y")
+    ] 
+    """
 
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
     return graphJSON
