@@ -31,7 +31,7 @@ def call_q():
 @app.route("/")
 def home_page():
     temp, umid, hora = call_q()
-    return render_template('index.html', q=temp, c=umid, t=hora, graphJSON=gm())
+    return render_template('index.html', q=temp, c=umid, t=hora, graphJSON=gm()[0], graphJSON2=gm()[1])
 
 
 def gm():
@@ -63,8 +63,19 @@ def gm():
     ] 
     """
 
+    fig2 = px.bar(data.tail(20), x="Tempo", y="Temperatura", color="Temperatura")
+    fig2.update_layout(
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font_color="#E7D6D6",
+        title_font_family="Montserrat",
+        legend_title="Legenda",
+        yaxis_title="Dados"
+    )
+
     graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return graphJSON
+    graphJSON2 = json.dumps(fig2, cls=plotly.utils.PlotlyJSONEncoder)
+    return graphJSON, graphJSON2
 
 
 @app.route('/callback', methods=['POST', 'GET'])
