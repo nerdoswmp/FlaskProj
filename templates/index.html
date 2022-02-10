@@ -22,7 +22,7 @@
 <body id="pag1">
 	<header class="menu">
 		<div class="menu-container">
-			<a class="menu-logo" href="#intro"><img src="static/img/logo.png" alt="Gamind Logo"></a>
+			<a class="menu-logo" href="#intro"><img src="static/img/logolol.png" alt="Carloville Logo"></a>
 			<nav class="menu-nav">
 				<ul>
 					<li><a href="#sobre">Sobre nós</a></li>
@@ -146,15 +146,17 @@
 
   <center>
     <h1>graph ooga pooga</h1>
-      <!--<meta http-equiv="refresh" content="29">-->       <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
+     <meta http-equiv="refresh" content="30">      <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
     <div id="chart" class="chart"></div>
+    <br>
+    <div id="chart2" class="chart"></div>
   </center>
 
   <div class="container">
     <div class="sections section1">
       <div class="content">
         <section>
-          <div id="chart2" class="chart"></div>
+          <img src="static/img/img-atualizado.png" class="img-responsive">
             <br>
           <h2>Objetivo</h2>
             <br>
@@ -273,10 +275,11 @@
       </footer>
     </div>
 </body>
-<script>
+<script type="text/javascript">
   d = {{ graphJSON | safe }};
+  e = {{ graphJSON2 | safe }};
+  Plotly.newPlot('chart2', e, {});
   Plotly.newPlot('chart', d, {});
-  Plotly.newPlot('chart2', d, {});
 
 </script>
 </html>
