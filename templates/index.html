@@ -7,9 +7,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script type="text/javascript" src="static/js/script.js"></script>
-  <script type="text/javascript" src="static/js/graph.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.6/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+  function cb() {
+      $.getJSON({
+          url: "/callback", success: function (result) {
+              Plotly.newPlot('chart', result, {staticPlot: true});;
+          }
+      });
+  }
+  function cb2() {
+      $.getJSON({
+          url: "/callback2", success: function (result) {
+              Plotly.newPlot('chart2', result, {staticPlot: true});;
+          }
+      });
+  }
+  setInterval(cb, 2000);
+  setInterval(cb2, 2000);
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -146,7 +163,8 @@
 
   <center>
     <h1>graph ooga pooga</h1>
-     <meta http-equiv="refresh" content="30">      <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
+    <button type="button" onclick="cb()"> clicky click </button>
+    <!-- <meta http-equiv="refresh" content="30">-->      <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
     <div id="chart" class="chart"></div>
     <br>
     <div id="chart2" class="chart"></div>

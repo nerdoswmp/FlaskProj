@@ -1,31 +1,12 @@
 from flask import Flask, render_template, request
+from dbrequests import call_q
 import pandas as pd
 import json
-import pyodbc
 import plotly
 import plotly.express as px
 from plotly.graph_objs import *
 
 app = Flask(__name__)
-
-
-def call_q():
-    server = 'DESKTOP-GGRN2GL' # Tenta não esquecer de mudar isso antes de rodar o flask
-    database = 'debug'
-    cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER='+server+';DATABASE='+database+';Trusted_Connection=yes;')
-    cursor = cnxn.cursor()
-    cursor.execute("SELECT Temperatura, Umidade, timestamp FROM dbo.Sensor")
-    row = cursor.fetchone()
-    temp = []
-    umid = []
-    hora = []
-    while row:
-        temp.append(row[0])
-        umid.append(row[1])
-        hora.append(str(row[2]))
-        row = cursor.fetchone()
-
-    return temp, umid, hora
 
 
 @app.route("/")
@@ -80,7 +61,12 @@ def gm():
 
 @app.route('/callback', methods=['POST', 'GET'])
 def cb():
-    return gm(request.args.get('data'))
+    return gm()[0]
+
+
+@app.route('/callback2', methods=['POST', 'GET'])
+def cb2():
+    return gm()[1]
 
 
 @app.route("/pagina.html")
