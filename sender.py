@@ -1,9 +1,11 @@
 import random
 import time
-import requests
+import dbrequests as dbr
 import pyodbc
 
-i = 1
+i = 1799
+celsius = 24
+umid = 70
 
 
 def InserirBD(c, u):
@@ -18,7 +20,17 @@ def InserirBD(c, u):
 
 
 while True:
-    celsius = random.randint(0, 35)
-    umid = random.randint(0, 100)
+    celsius = celsius + random.randint(-3, 3)
+    if 100 >= umid >= 0:
+        umid = umid + random.randint(-5, 5)
+    if umid > 100:
+        umid = 100
+    if umid < 0:
+        umid = 0
     InserirBD(celsius, umid)
-    time.sleep(30)
+    time.sleep(2)
+    i += 1
+    print(i)
+    if i > 1800:
+        dbr.delete()
+        i = 900
