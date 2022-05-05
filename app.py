@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from dbrequests import call_q
+from dbrequests import call_q, call_MinMax
 import pandas as pd
 import json
 import plotly
@@ -11,8 +11,8 @@ app = Flask(__name__)
 
 @app.route("/")
 def home_page():
-    temp, umid, hora = call_q()
-    return render_template('index.html', q=temp, c=umid, t=hora, graphJSON=gm()[0], graphJSON2=gm()[1])
+    MaxTemp, MinTemp = call_MinMax()
+    return render_template('index.html', MaxTemp=MaxTemp, MinTemp=MinTemp, graphJSON=gm()[0], graphJSON2=gm()[1])
 
 
 def gm():
@@ -68,6 +68,13 @@ def cb():
 def cb2():
     return gm()[1]
 
+@app.route('/callback3', methods=['POST', 'GET'])
+def updMax():
+    return str(call_MinMax()[0])
+
+@app.route('/callback4', methods=['POST', 'GET'])
+def updMin():
+    return str(call_MinMax()[1])
 
 @app.route("/pagina.html")
 def pag_page():

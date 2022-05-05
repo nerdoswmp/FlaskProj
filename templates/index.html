@@ -6,9 +6,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script type="text/javascript" src="static/js/script.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 
   <script>
   function cb() {
       $.getJSON({
@@ -24,6 +22,22 @@
           }
       });
   }
+  function updMax() {
+      $.getJSON({
+          url: "/callback3", success: function (result) {
+              document.getElementById("maxt").innerHTML = result;
+          }
+      });
+  }
+  function updMin() {
+      $.getJSON({
+          url: "/callback4", success: function (result) {
+              document.getElementById("mint").innerHTML = result;
+          }
+      });
+  }
+  setInterval(updMax, 10000);
+  setInterval(updMin, 10000);
   setInterval(cb, 2000);
   setInterval(cb2, 2000);
   </script>
@@ -170,6 +184,23 @@
     <div id="chart2" class="chart"></div>
   </center>
 
+    <div class="container">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <h2 id="maxt">{{MaxTemp}}</h2>
+            <br>
+          <p>Maior temperatura alcançada na última hora</p>
+        </section>
+        <section>
+          <h2 id="mint">{{MinTemp}}</h2>
+            <br>
+          <p>Menor temperatura alcançada na última hora</p>
+        </section>
+      </div>
+    </div>
+  </div>
+
   <div class="container">
     <div class="sections section1">
       <div class="content">
@@ -292,6 +323,9 @@
         &copy; 2021 GAMIND MARIMURI CORP. &trade; Ltd.
       </footer>
     </div>
+    <script type="text/javascript" src="static/js/script.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 <script type="text/javascript">
   d = {{ graphJSON | safe }};

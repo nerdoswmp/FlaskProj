@@ -3,14 +3,14 @@ import time
 import dbrequests as dbr
 import pyodbc
 
-i = 1799
+i = 0
 celsius = 24
 umid = 70
 
 
 def InserirBD(c, u):
-    server = 'DESKTOP-GGRN2GL'
-    database = 'debug'
+    server = 'SNCCH01LABF104\SQLEXPRESS'
+    database = 'dbtest'
     cnxn = pyodbc.connect(
         'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' + database + ';Trusted_Connection=yes;')
     cursor = cnxn.cursor()
