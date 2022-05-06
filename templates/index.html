@@ -25,14 +25,14 @@
   function updMax() {
       $.getJSON({
           url: "/callback3", success: function (result) {
-              document.getElementById("maxt").innerHTML = result;
+              document.getElementById("maxt").innerHTML = result + " ºC";
           }
       });
   }
   function updMin() {
       $.getJSON({
           url: "/callback4", success: function (result) {
-              document.getElementById("mint").innerHTML = result;
+              document.getElementById("mint").innerHTML = result + " ºC";
           }
       });
   }
@@ -53,14 +53,13 @@
 <body id="pag1">
 	<header class="menu">
 		<div class="menu-container">
-			<a class="menu-logo" href="#intro"><img src="static/img/logolol.png" alt="Carloville Logo"></a>
+			<a class="menu-logo" href="#intro"><img src="static/img/website logo.png" alt="website Logo"></a>
 			<nav class="menu-nav">
 				<ul>
 					<li><a href="#sobre">Sobre nós</a></li>
 					<li><a href="#precos">Preços</a></li>
 					<li><a href="#footer">Contato</a></li>
-          <li><a href="pagina.html">Conteúdos</a></li>
-          <li><a onclick="openLoginForm()" id="login">Entrar</a></li>
+                    <li><a onclick="openLoginForm()" id="login">Entrar</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -188,12 +187,12 @@
     <div class="sections section1">
       <div class="content">
         <section>
-          <h2 id="maxt">{{MaxTemp}}</h2>
+          <h2 id="maxt">{{MaxTemp}} ºC</h2>
             <br>
           <p>Maior temperatura alcançada na última hora</p>
         </section>
         <section>
-          <h2 id="mint">{{MinTemp}}</h2>
+          <h2 id="mint">{{MinTemp}} ºC</h2>
             <br>
           <p>Menor temperatura alcançada na última hora</p>
         </section>
@@ -205,14 +204,14 @@
     <div class="sections section1">
       <div class="content">
         <section>
-          <img src="static/img/img-atualizado.png" class="img-responsive">
+          <img src="static/img/css-is-awesome.jpg" class="img-responsive">
             <br>
           <h2>Objetivo</h2>
             <br>
           <p>É <a href="https://educere.bruc.com.br/arquivo/pdf2015/19315_10181.pdf" target="_blank">cientificamente comprovado</a> que jogos do estilo "puzzle" ajudam a treinar o cérebro na hora de expandir o conhecimento, além de incentivar o usuário a tomar as rédeas de seu próprio aprendizado através da diversão.</p>
         </section>
         <section>
-          <img src="static/img/img-atualizado.png" class="img-responsive">
+          <img src="static/img/css-is-awesome.jpg" class="img-responsive">
             <br>
           <h2>Acessível</h2>
             <br>
