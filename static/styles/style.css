@@ -23,7 +23,8 @@ body{
   top: 0;
   width: 100%;
   background-color: #252525;
-  padding: 30px 0;
+  padding: 15px 0;
+  padding-bottom: 30px;
   z-index: 2;
 }
 
@@ -49,21 +50,25 @@ body{
 }
 
 .menu-logo{
-  height: 45px;
+  height: 56px;
+  width: auto;
   display: block;
   float: left;
   transition: transform .2s;
+  transform: scale(1.05);
+  image-rendering: -moz-crisp-edges;
 }
 
 .menu-logo:hover{
   cursor: pointer;
   transition: transform .2s;
-  transform: scale(1.05);
+  transform: scale(1.10);
 }
 
 .menu-nav{
   float: right;
   margin-right: 10px;
+  margin-top: 15px;
 }
 
 .menu-nav li{
