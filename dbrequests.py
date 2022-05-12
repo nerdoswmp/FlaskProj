@@ -1,7 +1,12 @@
 import pyodbc
+import logging
 
-server = 'SNCCH01LABF104\SQLEXPRESS'
-database = 'dbtest'
+level = logging.DEBUG
+fmt = '[%(levelname)s] %(asctime)s - %(message)s'
+logging.basicConfig(level=level, format=fmt)
+
+server = 'DESKTOP-GGRN2GL'
+database = 'debug'
 
 
 def call_q():
@@ -22,17 +27,16 @@ def call_q():
     return temp, umid, hora
 
 
-def call_MinMax():
+def call_minmax():
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
                           'SERVER='+server+';DATABASE='+database+';Trusted_Connection=yes;')
     cursor = cnxn.cursor()
     cursor.execute("select Max(Temperatura), Min(Temperatura) from dbo.sensor")
     row = cursor.fetchone()
-    MaxTemp = row[0]
-    MinTemp = row[1]
+    maxtemp = row[0]
+    mintemp = row[1]
     cnxn.close()
-    return MaxTemp, MinTemp
-
+    return maxtemp, mintemp
 
 
 def delete():
@@ -41,5 +45,5 @@ def delete():
     cursor = cnxn.cursor()
     cursor.execute("DELETE TOP (900) FROM dbo.Sensor")
     cursor.commit()
-    print("\n\n900 items removidos do banco")
+    logging.info("\n\n900 items removidos do banco")
     cnxn.close()
