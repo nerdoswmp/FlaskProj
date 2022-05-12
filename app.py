@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from dbrequests import call_q, call_MinMax
+from dbrequests import call_q, call_minmax
 import pandas as pd
 import json
 import plotly
@@ -11,13 +11,13 @@ app = Flask(__name__)
 
 @app.route("/")
 def home_page():
-    MaxTemp, MinTemp = call_MinMax()
-    return render_template('index.html', MaxTemp=MaxTemp, MinTemp=MinTemp, graphJSON=gm()[0], graphJSON2=gm()[1])
+    maxtemp, mintemp = call_minmax()
+    return render_template('index.html', MaxTemp=maxtemp, MinTemp=mintemp, graphJSON=gm()[0], graphJSON2=gm()[1])
 
 
 def gm():
     temp, umid, hora = call_q()
-    data = pd.DataFrame({"Tempo":hora, "Temperatura":temp, "Umidade":umid})
+    data = pd.DataFrame({"Tempo": hora, "Temperatura": temp, "Umidade": umid})
     data["Tempo"] = pd.to_datetime(data["Tempo"])
 
     fig = px.line(data, x="Tempo", y=["Temperatura", "Umidade"])
@@ -68,13 +68,16 @@ def cb():
 def cb2():
     return gm()[1]
 
+
 @app.route('/callback3', methods=['POST', 'GET'])
-def updMax():
-    return str(call_MinMax()[0])
+def updmax():
+    return str(call_minmax()[0])
+
 
 @app.route('/callback4', methods=['POST', 'GET'])
-def updMin():
-    return str(call_MinMax()[1])
+def updmin():
+    return str(call_minmax()[1])
+
 
 @app.route("/pagina.html")
 def pag_page():
