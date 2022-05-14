@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request
 from dbrequests import call_q, call_minmax
+from threading import Thread
 import pandas as pd
 import json
 import plotly
 import plotly.express as px
 from plotly.graph_objs import *
+from threading import Thread
+import sender
 
 app = Flask(__name__)
 
@@ -28,7 +31,14 @@ def gm():
         font_color="#E7D6D6",
         title_font_family="Montserrat",
         legend_title="Legenda",
-        yaxis_title="Dados"
+        yaxis_title="Dados",
+        legend=dict(
+            orientation="h",
+            yanchor="bottom",
+            y=1.02,
+            xanchor="right",
+            x=1
+        )
     )
 
     """ 
@@ -44,7 +54,8 @@ def gm():
     ] 
     """
 
-    fig2 = px.bar(data.tail(20), x="Tempo", y="Temperatura", color="Temperatura")
+    fig2 = px.bar(data.tail(20), x="Tempo", y="Temperatura", color="Temperatura",
+                  color_continuous_scale=px.colors.sequential.Teal)
     fig2.update_layout(
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
@@ -85,4 +96,9 @@ def pag_page():
 
 # https://www.youtube.com/watch?v=Qr4QMBUPxWo
 # https://towardsdatascience.com/an-interactive-web-dashboard-with-plotly-and-flask-c365cdec5e3f
-#
+
+
+if __name__ == "__main__":
+    t1 = Thread(target=sender.generate)
+    t1.start()
+    app.run(host='0.0.0.0', port=8080)
