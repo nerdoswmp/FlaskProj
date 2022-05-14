@@ -9,6 +9,16 @@ server = 'DESKTOP-GGRN2GL'
 database = 'debug'
 
 
+def inserirbd(c, u):
+    cnxn = pyodbc.connect(
+        'DRIVER={ODBC Driver 17 for SQL Server};SERVER=' + server + ';DATABASE=' + database + ';Trusted_Connection=yes;')
+    cursor = cnxn.cursor()
+    cursor.execute(f"INSERT dbo.Sensor (Temperatura, Umidade) VALUES ({c},{u});")
+    cursor.commit()
+    logging.info("Inserido com sucesso!")
+    cnxn.close()
+
+
 def call_q():
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
                           'SERVER='+server+';DATABASE='+database+';Trusted_Connection=yes;')
@@ -39,11 +49,17 @@ def call_minmax():
     return maxtemp, mintemp
 
 
-def delete():
+def delete(amount):
     cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};'
                           'SERVER=' + server + ';DATABASE=' + database + ';Trusted_Connection=yes;')
     cursor = cnxn.cursor()
-    cursor.execute("DELETE TOP (900) FROM dbo.Sensor")
+    if amount == "all":
+        cursor.execute(f"DELETE FROM dbo.Sensor")
+        cursor.commit()
+        return logging.info("\n\nTodos itens removidos do banco")
+
+    cursor.execute(f"DELETE TOP ({amount}) FROM dbo.Sensor")
     cursor.commit()
-    logging.info("\n\n900 items removidos do banco")
     cnxn.close()
+    return logging.info("\n\n900 itens removidos do banco")
+
