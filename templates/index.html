@@ -8,46 +8,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
   <script>
-  function cb() {
-      $.getJSON({
-          url: "/callback", success: function (result) {
-              Plotly.newPlot('chart', result, {staticPlot: true});;
-          }
-      });
-  }
-  function cb2() {
-      $.getJSON({
-          url: "/callback2", success: function (result) {
-              Plotly.newPlot('chart2', result, {staticPlot: true});;
-          }
-      });
-  }
-  function updMax() {
-      $.getJSON({
-          url: "/callback3", success: function (result) {
-              document.getElementById("maxt").innerHTML = result + " ºC";
-          }
-      });
-  }
-  function updMin() {
-      $.getJSON({
-          url: "/callback4", success: function (result) {
-              document.getElementById("mint").innerHTML = result + " ºC";
-          }
-      });
-  }
-  setInterval(updMax, 10000);
-  setInterval(updMin, 10000);
-  setInterval(cb, 2000);
-  setInterval(cb2, 2000);
+    function cb() {
+        $.getJSON({
+            url: "/callback", success: function (result) {
+                Plotly.newPlot('chart', result, {staticPlot: true});;
+            }
+        });
+    }
+    function cb2() {
+        $.getJSON({
+            url: "/callback2", success: function (result) {
+                Plotly.newPlot('chart2', result, {staticPlot: true});;
+            }
+        });
+    }
+    function updMax() {
+        $.getJSON({
+            url: "/callback3", success: function (result) {
+                document.getElementById("maxt").innerHTML = result + " ºC";
+            }
+        });
+    }
+    function updMin() {
+        $.getJSON({
+            url: "/callback4", success: function (result) {
+                document.getElementById("mint").innerHTML = result + " ºC";
+            }
+        });
+    }
+    setInterval(updMax, 10000);
+    setInterval(updMin, 10000);
+    setInterval(cb, 2000);
+    setInterval(cb2, 2000);
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
-  <link rel="icon" type="image/png" href="static/img/icon.png"/>
-  <title>TemplateWebp</title>
+  <link rel="icon" type="image/jfif" href="static/img/walt.jfif"/>
+  <title>WebSite</title>
 </head>
 
 <body id="pag1">
@@ -59,7 +59,7 @@
 					<li><a href="#sobre">Sobre nós</a></li>
 					<li><a href="#precos">Preços</a></li>
 					<li><a href="#footer">Contato</a></li>
-                    <li><a onclick="openLoginForm()" id="login">Entrar</a></li>
+          <li><a onclick="openLoginForm()" id="login">Entrar</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -165,8 +165,8 @@
 
   <span class="anchor" id="intro"></span>
   <main class="intro">
-    <h1>to usando isso aqui de template ok</h1>
-    <p>todo: fazer um site novo encima desse</p>
+    <h1>Sensor 1</h1>
+    <p>Sensor simulado virtualmente</p>
   </main>
 
   <br>
@@ -175,8 +175,8 @@
   <br>
 
   <center>
-    <h1>graph ooga pooga</h1>
-    <button type="button" onclick="cb()"> clicky click </button>
+    <h1>Os dados deste sensor são gerados artificialmente na própria API</h1>
+    <button class="updbutton" type="button" onclick="cb()"> Atualizar gráfico manualmente </button>
     <!-- <meta http-equiv="refresh" content="30">-->      <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
     <div id="chart" class="chart"></div>
     <br>
@@ -206,16 +206,16 @@
         <section>
           <img src="static/img/css-is-awesome.jpg" class="img-responsive">
             <br>
-          <h2>Objetivo</h2>
+          <h2>Opinião</h2>
             <br>
-          <p>É <a href="https://educere.bruc.com.br/arquivo/pdf2015/19315_10181.pdf" target="_blank">cientificamente comprovado</a> que jogos do estilo "puzzle" ajudam a treinar o cérebro na hora de expandir o conhecimento, além de incentivar o usuário a tomar as rédeas de seu próprio aprendizado através da diversão.</p>
+          <p>Eu <a href="https://cdn.discordapp.com/attachments/470327818056892428/974435889725988975/unknown.png" target="_blank">odeio</a> fazer html & css</p>
         </section>
         <section>
           <img src="static/img/css-is-awesome.jpg" class="img-responsive">
             <br>
-          <h2>Acessível</h2>
+          <h2>Template</h2>
             <br>
-          <p>Nossos planos começam a partir de R$15, e já no plano <a href="#precos">N00B</a> você recebe acesso à conteúdos de nível desde curso técnico à faculdade!</p>
+          <p>Aqui vai ter algum tipo de informação referente ao microcontrolador ou sobre a <a href="https://canaltech.com.br/software/o-que-e-api/#:~:text=API%20é%20um%20conjunto%20de,Interface%20de%20Programação%20de%20Aplicativos".">API</a>.</p>
         </section>
       </div>
     </div>
@@ -272,15 +272,9 @@
 
   <div class="footer" id="footer">
       <div class="heading">
-        <h2>MariMuri Corp. <sup>&trade;</sup></h2>
+        <h2>web site . com <sup>&trade;</sup></h2>
       </div>
       <div class="content">
-        <div>
-          <h4>Serviços</h4>
-          <p><a href="#precos">Preços de pacotes</a></p>
-          <p><a href="#">O que fazemos</a></p>
-          <p><a href="#">Quem somos</a></p>
-        </div>
         <div>
           <h4>Social</h4>
           <p>
@@ -309,17 +303,17 @@
         <div>
           <h4>Endereço</h4>
           <p>
-            Foz do do iguaçu
+            Curitiba
           </p>
           <h4>Telefone</h4>
-          <p>+1 (554) 188-4562</p>
+          <p>+41 (55) 99999-9999</p>
           <h4>Email</h4>
-          <p>marimuri@marimuricorp.com</p>
+          <p>nerdoswampo@gmail.com</p>
         </div>
       </div>
       <footer>
         <hr/>
-        &copy; 2021 GAMIND MARIMURI CORP. &trade; Ltd.
+        &copy; 2022 nerdoswmp. &trade; Ltd.
       </footer>
     </div>
     <script type="text/javascript" src="static/js/script.js"></script>
