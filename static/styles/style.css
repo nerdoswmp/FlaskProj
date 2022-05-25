@@ -211,6 +211,9 @@ body.showContentForm .popup4 {
   opacity:1;
 }
 
+
+
+
 .popup-close {
   position: absolute;
   width:40px;
@@ -275,6 +278,9 @@ body.showContentForm .popup4 {
 .intro a:hover{
   color: #94D1BE;
   cursor: pointer;
+}
+.intro h1{
+    font-size:5em;
 }
 
 @-webkit-keyframes myfirst {
@@ -364,10 +370,10 @@ body.showContentForm .popup4 {
   width: auto;
   position: relative;
   overflow: hidden;
-  background-image: url("../img/teclado.png");
+  background-image: url("../img/chat1.png");
   background-size: cover;
   background-repeat: no-repeat;
-  border-left: 30px solid #121525;
+  border-left: 30px solid #1B1F33;
   border-radius: 5px;
 }
 
@@ -378,10 +384,14 @@ body.showContentForm .popup4 {
   left: 0;
   height: 100%;
   width: 150%;
-  background: #2e2a2a;
+  background: #1B1F33;
   -webkit-transform: rotate(-50deg);
   -moz-transform: rotate(-50deg);
   transform: rotate(-50deg);
+}
+.centerH1{
+color : #FFFFF;
+
 }
 
 .img-dsc2{
@@ -390,10 +400,10 @@ body.showContentForm .popup4 {
   width: auto;
   position: relative;
   overflow: hidden;
-  background-image: url("../img/pessoa-no-pc.png");
+  background-image: url("../img/esp.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
-  border-right: 30px solid #252525;
+  border-right: 30px solid #1B1F33;
   border-radius: 5px;
 }
 
@@ -404,7 +414,7 @@ body.showContentForm .popup4 {
   right: 0;
   height: 100%;
   width: 150%;
-  background: #2e2a2a;
+  background: #1B1F33;
   -webkit-transform: rotate(50deg);
   -moz-transform: rotate(50deg);
   transform: rotate(50deg);

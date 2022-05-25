@@ -6,6 +6,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <script>
+    function cb() {
+        $.getJSON({
+            url: "/callback", success: function (result) {
+                Plotly.newPlot('chart', result, {staticPlot: true});;
+            }
+        });
+    }
+    function cb2() {
+        $.getJSON({
+            url: "/callback2", success: function (result) {
+                Plotly.newPlot('chart2', result, {staticPlot: true});;
+            }
+        });
+    }
+    function updMax() {
+        $.getJSON({
+            url: "/callback3", success: function (result) {
+                document.getElementById("maxt").innerHTML = result + " ºC";
+            }
+        });
+    }
+    function updMin() {
+        $.getJSON({
+            url: "/callback4", success: function (result) {
+                document.getElementById("mint").innerHTML = result + " ºC";
+            }
+        });
+    }
+    setInterval(updMax, 10000);
+    setInterval(updMin, 10000);
+    setInterval(cb, 2000);
+    setInterval(cb2, 2000);
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
@@ -23,7 +58,7 @@
 				<ul>
 					<li><a href="/sensor1">Sensor 1</a></li>
 					<li><a href="/sensor2">Sensor 2</a></li>
-                   <!---<li><a onclick="openLoginForm()" id="login">Entrar</a></li>--->
+                    <!---<li><a onclick="openLoginForm()" id="login">Entrar</a></li>--->
 				</ul>
 			</nav>
 		</div>
@@ -129,8 +164,8 @@
 
   <span class="anchor" id="intro"></span>
   <main class="intro">
-    <h1>Dashboard</h1>
-    <p>monitoramento de temperatua e umidade</p>
+    <h1>Sensor 1</h1>
+    <p>Sensor simulado virtualmente</p>
   </main>
 
   <br>
@@ -138,7 +173,32 @@
   <br>
   <br>
 
-<!---
+  <center>
+    <h1 class="centerH1">Os dados deste sensor são gerados artificialmente na própria API</h1>
+    <button class="updbutton" type="button" onclick="cb()"> Atualizar gráfico manualmente </button>
+    <!-- <meta http-equiv="refresh" content="30">-->      <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
+    <div id="chart" class="chart"></div>
+    <br>
+    <div id="chart2" class="chart"></div>
+  </center>
+
+    <div class="container">
+    <div class="sections section1">
+      <div class="content">
+        <section>
+          <h2 id="maxt">{{MaxTemp}} ºC</h2>
+            <br>
+          <p>Maior temperatura alcançada na última hora</p>
+        </section>
+        <section>
+          <h2 id="mint">{{MinTemp}} ºC</h2>
+            <br>
+          <p>Menor temperatura alcançada na última hora</p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!--
   <div class="container">
     <div class="sections section1">
       <div class="content">
@@ -161,7 +221,7 @@
   </div>
 
   <br><br><br><br>
---->
+
   <span class="anchor" id="sobre"></span>
   <div class="container">
     <div class="sections section1">
@@ -171,9 +231,9 @@
         </section>
         <section>
             <br><br><br><br>
-          <h1 style="margin-right:30px; font-size:40px;">Software</h1>
+          <h1 style="margin-right:30px; font-size:40px;">Quem somos?</h1>
             <br>
-          <p style="margin-right:30px; font-size:20px;">A parte virtual do projeto utiliza a biblioteca Flask do Python como API, SqlServer para armazenar os dados e o Google FireBase para fazer a transferencia entre a ESP e o Aplicativo</p>
+          <p style="margin-right:30px; font-size:20px;">A equipe do Gamind é composta por dois desenvolvedores, responsáveis por este site! Entretanto, os jogos e aulas vem de usuários mais experiêntes e professores formados na área!</p>
         </section>
       </div>
     </div>
@@ -183,9 +243,9 @@
       <div class="content">
         <section>
           <br><br><br><br>
-          <h1 style="margin-left:30px; font-size:40px;">Hardware</h1>
+          <h1 style="margin-left:30px; font-size:40px;">O que fazemos?</h1>
           <br>
-          <p style="margin-left:30px; font-size:20px;">A coleta dos dados está sendo feita através de um sensor DHT11 conectado a um microcontrolador ESP32</p>
+          <p style="margin-left:30px; font-size:20px;">Nosso objetivo é facilitar o acesso ao conhecimento de programação através de jogos, aulas e bate-papos com professores especializados em diversos assuntos. Fora os jogos e as aulas, também são disponibilizados exercícios que podem ser elaborados tanto pelos professores quanto pela comunidade, caso nossos alunos sintam-se confiantes o suficiente.</p>
         </section>
         <section>
           <div class="img-dsc2"></div>
@@ -207,8 +267,8 @@
     <br>
   </div>
 
+  <br><br><br>
 
-<!---
   <div class="footer" id="footer">
       <div class="heading">
         <h2>web site . com <sup>&trade;</sup></h2>
@@ -232,8 +292,20 @@
             <a href="https://www.instagram.com/" target="_blank">Instagram</a>
           </p>
         </div>
-
         <div>
+          <h4>Acesso rápido</h4>
+          <p><a href="#intro">Home</a></p>
+          <p><a href="#footer">Sobre</a></p>
+          <p><a href="#">Blogs</a></p>
+          <p><a href="#footer">Contato</a></p>
+        </div>
+        <div>
+          <h4>Endereço</h4>
+          <p>
+            Curitiba
+          </p>
+          <h4>Telefone</h4>
+          <p>+41 (55) 99999-9999</p>
           <h4>Email</h4>
           <p>nerdoswampo@gmail.com</p>
         </div>
@@ -242,9 +314,17 @@
         <hr/>
         &copy; 2022 nerdoswmp. &trade; Ltd.
       </footer>
-    </div>--->
+    </div>
+      !-->
     <script type="text/javascript" src="static/js/script.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
+<script type="text/javascript">
+  d = {{ graphJSON | safe }};
+  e = {{ graphJSON2 | safe }};
+  Plotly.newPlot('chart2', e, {});
+  Plotly.newPlot('chart', d, {});
+
+</script>
 </html>
