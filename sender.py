@@ -46,7 +46,3 @@ def sinal():
             dbr.delete(900, "sensor2")
             i = 900
 
-
-
-
-
