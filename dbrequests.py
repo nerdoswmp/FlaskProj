@@ -5,7 +5,7 @@ level = logging.DEBUG
 fmt = '[%(levelname)s] %(asctime)s - %(message)s'
 logging.basicConfig(level=level, format=fmt)
 
-server = 'SNCCH01LABF104\SQLEXPRESS'
+server = 'DESKTOP-GGRN2GL'
 database = 'debug'
 
 
