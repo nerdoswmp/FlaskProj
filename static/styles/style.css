@@ -343,7 +343,8 @@ body.showContentForm .popup4 {
   }
   .section1 section{
     margin:0;
-    padding:1rem;
+    padding-top:1rem;
+    padding-bottom:1rem;
   }
 }
 
@@ -389,14 +390,13 @@ body.showContentForm .popup4 {
   -moz-transform: rotate(-50deg);
   transform: rotate(-50deg);
 }
-.centerH1{
-color : #FFFFF;
 
+.centerH1{
+    max-width: 70%;
 }
 
 .img-dsc2{
   height: 300px;
-  max-width: 720px;
   width: auto;
   position: relative;
   overflow: hidden;
@@ -412,7 +412,7 @@ color : #FFFFF;
   position: absolute;
   top: 40%;
   right: 0;
-  height: 100%;
+  height: 200%;
   width: 150%;
   background: #1B1F33;
   -webkit-transform: rotate(50deg);
@@ -518,7 +518,31 @@ footer hr {
   margin: 2rem 0;
 }
 
+.dsctxt1{
+    margin-left:30px;
+    font-size:40px;
+}
+
+.dsctxt1 p{
+    margin-left:30px;
+    font-size:20px;
+}
+
+.dsctxt2{
+    margin-right:30px;
+    font-size:40px;
+}
+
+.dsctxt2 p{
+    margin-right:30px;
+    font-size:20px;
+}
+
 @media (max-width: 767px) {
+    .intro h1{
+        font-size: 3em;
+    }
+
   .footer .content {
     display: flex;
     flex-direction: column;
@@ -528,6 +552,76 @@ footer hr {
   .footer {
     position: unset;
   }
+
+    .section1{
+        margin-right: 0px;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .img-dsc{
+      height: 300px;
+      max-width: 100%;
+      width: auto;
+      position: relative;
+      overflow: hidden;
+      background-image: url("../img/chat1.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-left: none;
+      border-radius: 0px;
+    }
+
+    .img-dsc::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      right: 0;
+      height: 0%;
+      width: 0%;
+    }
+
+    .img-dsc2{
+      height: 300px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background-image: url("../img/esp.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-right: none;
+      border-radius: 0px;
+    }
+
+    .img-dsc2::after {
+      content: "";
+      position: absolute;
+      top: 40%;
+      right: 0;
+      height: 0%;
+      width: 0%;
+    }
+
+
+    .dsctxt1{
+        margin-left:0px;
+        font-size:40px;
+    }
+
+    .dscminitxt1{
+        margin-left:0px;
+        font-size:20px;
+    }
+
+    .dsctxt2{
+        margin-right:0px;
+        font-size:40px;
+    }
+
+    .dscminitxt2{
+        margin-right:0px;
+        font-size:20px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
