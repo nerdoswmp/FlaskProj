@@ -1,10 +1,12 @@
 import pyodbc
 import logging
+from firebase import firebase
 
 level = logging.DEBUG
 fmt = '[%(levelname)s] %(asctime)s - %(message)s'
 logging.basicConfig(level=level, format=fmt)
-
+auth = firebase.FirebaseAuthentication("dldVHFtk6iAETN7a1GdmXN0ARyAAKRehdyHkNeBe", "nerdoswampo@gmail.com")
+firebase = firebase.FirebaseApplication("https://espwebsite-d81ff-default-rtdb.firebaseio.com", auth)
 server = 'DESKTOP-GGRN2GL'
 database = 'debug'
 
@@ -16,7 +18,7 @@ def inserirbd(c, u, db):
     cursor = cnxn.cursor()
     cursor.execute(f"INSERT dbo.{db} (Temperatura, Umidade) VALUES ({c},{u});")
     cursor.commit()
-    logging.info("Inserido com sucesso!")
+    # logging.info("Inserido com sucesso!")
     cnxn.close()
 
 
@@ -64,3 +66,22 @@ def delete(amount, db):
     cnxn.close()
     return logging.info("\n\n900 itens removidos do banco")
 
+
+def firebaseget(sensor):
+    if sensor == "sensor":
+        get = firebase.get('sensor1send/', "")
+        key = list(get.keys())[0]
+        table = list(firebase.get(f'sensor1send/{key}', "").keys())[3]
+        #print(key)
+        data = firebase.get(f"/sensor1send/{key}/{table}", "")
+        #/sensor1send/-N4ewyhqkEqWOc6bzoKz/{'time', 'umid', 'temp'}
+        return data
+
+    elif sensor == "sensor2":
+        get = firebase.get('sensor2send/', "")
+        key = list(get.keys())[0]
+        table = list(firebase.get(f'sensor2send/{key}', "").keys())[3]
+        # print(key)
+        data = firebase.get(f"/sensor2send/{key}/{table}", "")
+        #/sensor2send/-N4esE97pT0Ru-uoN93A/{'temp', 'time', 'umid'}
+        return data

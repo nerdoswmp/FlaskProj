@@ -8,38 +8,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
  
   <script>
-    function cb3() {
+    function cb(sensor) {
         $.getJSON({
-            url: "/callback5", success: function (result) {
+            url: "/callback", data: { 'data': sensor }, success: function (result) {
                 Plotly.newPlot('chart', result, {staticPlot: true});;
             }
         });
     }
-    function cb4() {
+    function cb2(sensor) {
         $.getJSON({
-            url: "/callback6", success: function (result) {
+            url: "/callback2", data: { 'data': sensor }, success: function (result) {
                 Plotly.newPlot('chart2', result, {staticPlot: true});;
             }
         });
     }
-    function updMax2() {
+    function updMax(sensor) {
         $.getJSON({
-            url: "/callback7", success: function (result) {
+            url: "/callbackMAX", data: { 'data': sensor }, success: function (result) {
                 document.getElementById("maxt").innerHTML = result + " ºC";
             }
         });
     }
-    function updMin2() {
+    function updMin(sensor) {
         $.getJSON({
-            url: "/callback8", success: function (result) {
+            url: "/callbackMIN", data: { 'data': sensor }, success: function (result) {
                 document.getElementById("mint").innerHTML = result + " ºC";
             }
         });
     }
-    setInterval(updMax2, 10000);
-    setInterval(updMin2, 10000);
-    setInterval(cb3, 2000);
-    setInterval(cb4, 2000);
+    setInterval(function() {updMax('sensor2')}, 10000);
+    setInterval(function() {updMin('sensor2')}, 10000);
+    setInterval(function() {cb('sensor2')}, 2000);
+    setInterval(function() {cb2('sensor2')}, 2000);
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -174,8 +174,8 @@
   <br>
 
   <center>
-    <h1 class="centerH1">Os dados deste sensor são coletados de um DHT11 conectado à uma ESP32 no Lab01 do segundo andar</h1>
-    <button class="updbutton" type="button" onclick="cb3()"> Atualizar gráfico manualmente </button>
+    <h1 class="centerH1">Os dados deste sensor são coletados de um DHT11 conectado à uma ESP32</h1>
+    <button class="updbutton" type="button" onclick="cb('sensor2')"> Atualizar gráfico manualmente </button>
     <!-- <meta http-equiv="refresh" content="30">-->      <!-- MURILO O NEGOCIO QUE VOCÊ TA PROCURANDO TA AQUI NESSE SEGMENTO-->
     <div id="chart" class="chart"></div>
     <br>
@@ -198,77 +198,7 @@
       </div>
     </div>
   </div>
-  <!--
-  <div class="container">
-    <div class="sections section1">
-      <div class="content">
-        <section>
-          <img src="static/img/css-is-awesome.jpg" class="img-responsive">
-            <br>
-          <h2>Opinião</h2>
-            <br>
-          <p>Eu <a href="https://cdn.discordapp.com/attachments/470327818056892428/974435889725988975/unknown.png" target="_blank">odeio</a> fazer html & css</p>
-        </section>
-        <section>
-          <img src="static/img/css-is-awesome.jpg" class="img-responsive">
-            <br>
-          <h2>Template</h2>
-            <br>
-          <p>Aqui vai ter algum tipo de informação referente ao microcontrolador ou sobre a <a href="https://canaltech.com.br/software/o-que-e-api/#:~:text=API%20é%20um%20conjunto%20de,Interface%20de%20Programação%20de%20Aplicativos".">API</a>.</p>
-        </section>
-      </div>
-    </div>
-  </div>
-
   <br><br><br><br>
-
-  <span class="anchor" id="sobre"></span>
-  <div class="container">
-    <div class="sections section1">
-      <div class="content">
-        <section>
-          <div class=img-dsc></div>
-        </section>
-        <section>
-            <br><br><br><br>
-          <h1 style="margin-right:30px; font-size:40px;">Quem somos?</h1>
-            <br>
-          <p style="margin-right:30px; font-size:20px;">A equipe do Gamind é composta por dois desenvolvedores, responsáveis por este site! Entretanto, os jogos e aulas vem de usuários mais experiêntes e professores formados na área!</p>
-        </section>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="sections section1">
-      <div class="content">
-        <section>
-          <br><br><br><br>
-          <h1 style="margin-left:30px; font-size:40px;">O que fazemos?</h1>
-          <br>
-          <p style="margin-left:30px; font-size:20px;">Nosso objetivo é facilitar o acesso ao conhecimento de programação através de jogos, aulas e bate-papos com professores especializados em diversos assuntos. Fora os jogos e as aulas, também são disponibilizados exercícios que podem ser elaborados tanto pelos professores quanto pela comunidade, caso nossos alunos sintam-se confiantes o suficiente.</p>
-        </section>
-        <section>
-          <div class="img-dsc2"></div>
-        </section>
-      </div>
-    </div>
-  </div>
-
-  <br>
-  <br>
-  <br>
-  <br>
-
-  <span class="anchor" id="precos"></span>
-  <div>
-    <br>
-    <br>
-    <br>
-    <br>
-  </div>
-
-  <br><br><br>
-!-->
   <div class="footer" id="footer">
       <div class="heading">
         <h2>web site . com <sup>&trade;</sup></h2>

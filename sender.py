@@ -4,10 +4,6 @@ import dbrequests as dbr
 import logging
 import requests
 
-level = logging.DEBUG
-fmt = '[%(levelname)s] %(asctime)s - %(message)s'
-logging.basicConfig(level=level, format=fmt)
-
 
 def generate():
     i = 0
@@ -23,9 +19,10 @@ def generate():
         if umid < 0:
             umid = 0
         dbr.inserirbd(celsius, umid, "Sensor")
-        time.sleep(0.5)
+        time.sleep(2)
         i += 1
-        #logging.debug(i)
+        if i % 10 == 0:
+            logging.debug(f"sensor {i}")
         if i > 1800:
             dbr.delete(900, "sensor")
             i = 900
@@ -42,7 +39,8 @@ def sinal():
         dbr.inserirbd(temperatura, umidade, "Sensor2")
         time.sleep(2)
         i += 1
+        if i % 10 == 0:
+            logging.debug(f"sensor2 {i}")
         if i > 1800:
             dbr.delete(900, "sensor2")
             i = 900
-
