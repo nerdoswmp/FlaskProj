@@ -1,6 +1,6 @@
 # FlaskProj
-Projeto "̶"̶"̶"̶h̶a̶c̶k̶a̶t̶h̶o̶n̶"̶"̶"̶"̶ ̶d̶a̶ ̶v̶i̶d̶a̶ ̶p̶r̶o̶ ̶s̶e̶n̶a̶i̶  da faculdade
+Um projeto simples que realiza a leitura de um sensor DHT e plota gráficos em uma interface web
 
-Fazem três meses desde que mudei algo nesse projeto, por isso agora ele tem um objetivo diferente
+O projeto utiliza Flask para agir como interface web.
 
-Sequência de ações que me levaram a ignorar o dash como biblioteca para o projeto e que me levaram ao usar o pyplot bruto
+A coleta dos dados é feita através de um sensor DHT11 conectado à uma ESP32
